@@ -1,0 +1,30 @@
+.drumkit-section{
+    display: grid;
+    grid-auto-flow: column dense;
+    gap: 20px;
+    padding: 20px;
+}
+.instrument{
+    cursor: pointer;
+    background-color: aquamarine;
+    width: 5em;
+    height: 5em;
+    border: 5px solid aquamarine;
+    border-radius: 50%;
+    padding: 10px;
+}
+.instrumentActive{
+    cursor: pointer;
+    background-color: rgb(42, 133, 103);
+    width: 5em;
+    height: 5em;
+    border: 5px solid rgb(139, 252, 186);
+    border-radius: 50%;
+    padding: 10px;
+}
+.instrument p{
+    font-size: 25px;
+}
+.instrument p::first-letter{
+    text-transform: capitalize;
+}
