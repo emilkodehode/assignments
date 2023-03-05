@@ -63,19 +63,27 @@ function addingAudioFunctionality(targetEl, source, sourceFolder){
     let note = document.createElement("audio")
     note.src = sourceFolder + source
     targetEl.append(note)
-    targetEl.addEventListener("click",()=>{note.play(); note.currentTime = 0})
+    targetEl.addEventListener("mousedown",()=>{note.play(); note.currentTime = 0})
 }
 
-
-
-drumkitEL.addEventListener("click", (e)=>{
+drumkitEL.addEventListener("mousedown", (e)=>{
     let clicked = e.target.closest(".instrument")
     if (!clicked){return}
     if(clicked.className === "instrument"){
         recording.push(clicked)
         console.log(recording)
+        clicked.classList.add("instrumentActive")
     }
 },true)
+
+drumkitEL.addEventListener("mouseup", (e)=>{
+    let leaving = e.target.closest(".instrument")
+    if (!leaving){return}
+    if(leaving.classList.contains("instrumentActive")){
+        leaving.classList.remove("instrumentActive")
+    }
+})
+
 let recording = []
 //this takes i and makes it so all timeouts fires at the same time but with increased delay based on time * i so first is 500*0=0 then 500*1=500 then 500*2=1000
 function playBack(recording){
